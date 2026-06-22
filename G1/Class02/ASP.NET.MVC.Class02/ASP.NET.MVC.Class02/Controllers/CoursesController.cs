@@ -21,7 +21,17 @@ namespace ASP.NET.MVC.Class02.Controllers
 
         public IActionResult GetCourseById(int id)  //localhost:port/courses/getCoursesById/10
         {
-            return Json(_courses.FirstOrDefault(x=>x.Id == id));
+            return Json(_courses.FirstOrDefault(x => x.Id == id));
+        }
+
+        public JsonResult GetCourseByName(string name) //localhost:port/courses/ASP.NET%20Core%20MVC -- custome
+        {
+            return Json(_courses.FirstOrDefault(x => x.Name == name));
+        }
+
+        public IActionResult GetCourseByIdAndName(int id, string name) //localhost:port/courses/getCourseByIdAndName/1/C%23%20Basics
+        {
+            return Json(_courses.FirstOrDefault(x => x.Id == id && x.Name == name));
         }
     }
 }
