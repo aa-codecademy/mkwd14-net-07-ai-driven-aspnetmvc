@@ -4,8 +4,8 @@ namespace Avenga.ASP.NET.MVC.Class03.DataAccess
 {
     public static class InMemoryDb
     {
-        public static List<Student> Students { get; set; } // TABLE STUDENTS
-        public static List<Course> Courses { get; set; } // TABLE COURSES
+        public static List<Student> Students { get; set; } = new List<Student>(); // TABLE STUDENTS
+        public static List<Course> Courses { get; set; } = new List<Course>(); // TABLE COURSES
 
         static InMemoryDb()
         {
@@ -73,7 +73,13 @@ namespace Avenga.ASP.NET.MVC.Class03.DataAccess
                     Id = 3,
                     Name = "ASP.Net MVC",
                     NumberOfClasses = 10
-                }
+                },
+                new Course()
+                {
+                    Id = 4,
+                    Name = "SQL",
+                    NumberOfClasses = 5
+                },
             };
         }
     }
