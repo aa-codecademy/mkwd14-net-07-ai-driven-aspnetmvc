@@ -50,5 +50,17 @@ namespace ASP.NET.MVC.Class02.Controllers
         {
             return Json(_students.FirstOrDefault(x => x.Id == id));
         }
+
+        [Route("id/{id}/name/{name}")] //students/id/1/name/Bob -- custom route
+        public Student GetStudentByIdAndName(int id, string name)
+        {
+            return _students.FirstOrDefault(x => x.Id == id && x.FirstName == name);
+        }
+
+        [Route("byId/{id=1}")] // students/byId/1 -- custom
+        public Student GetStudentByIdWithDefaultValue(int id) // -- default value
+        {
+            return _students.FirstOrDefault(x => x.Id == id);
+        }
     }
 }
