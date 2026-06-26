@@ -1,0 +1,27 @@
+﻿@*Just like when we expect some int param in a method and we send an int param when calling that method
+    we expect List<StudentViewModel> in this view, so we send that list to the view when returning from the action
+*@
+@model List<StudentViewModel>   
+
+@*This is a comment in Razor pages*@
+
+<div class="container mt-5">
+    <table class="table table-borded table-striped">
+        <thead class="text-warning bg-white">
+            <tr>
+                <th>Full name </th>
+                <th>Age </th>
+                <th>Active Course </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(StudentViewModel student in Model){
+                <tr>
+                    <td>@student.Fullname</td>
+                    <td>@student.Age</td>
+                    <td>@student.ActiveCourseName</td>
+               </tr>
+            }
+        </tbody>
+    </table>
+</div>

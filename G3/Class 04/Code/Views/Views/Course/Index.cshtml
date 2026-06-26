@@ -1,0 +1,14 @@
+﻿@model List<CourseWithStudentsViewModel>
+
+<h2 class="text-warning">All courses with students</h2>
+
+@foreach(var course in Model){
+<div class="container mt-4">
+    <h3 class="text-success">@course.CourseName</h3>
+    <p>Number of classes: @course.NumberOfClasses</p>
+
+    <h4>Enrolled students:</h4>
+    @Html.Partial("_StudentListPartial", course.Students) @*We call (insert) the partial view here and we send it the students that it needs so that it can render the data*@
+   <hr/>
+</div>
+}
