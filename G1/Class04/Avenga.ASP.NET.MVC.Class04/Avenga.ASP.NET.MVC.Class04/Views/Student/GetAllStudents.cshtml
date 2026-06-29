@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Avenga.ASP.NET.MVC.Class04.Models.Dto.StudentWithCourseDto>
+
+<h1>Get All Studnets</h1>
+
+<p>
+    <a>Create New Student</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Name of Course</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var student in Model)
+        {
+            <tr>
+                <td>@student.FullName</td>
+                <td>@student.Age</td>
+                <td>@student.NameOfCourse</td>
+                <td>@Html.ActionLink("Details", "GetStudentById", new {id=student.Id})</td>
+            </tr>
+        }
+    </tbody>
+</table>
