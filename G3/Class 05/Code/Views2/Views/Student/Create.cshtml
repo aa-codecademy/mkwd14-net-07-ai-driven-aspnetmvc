@@ -1,0 +1,78 @@
+﻿@model CreateStudentViewModel
+
+@*Form created using Html helpers*@
+
+<div class="container mt-5">
+    <h2 class="mb-4 text-warning">Create Student (Using Html Helpers)</h2>
+
+    @*The html helpers help us generate the html code dinamically for us instead of us writing it staticly*@
+    @*We also need to add the classes in the html helper so that it can "translate(map)" them when generating the html elements*@
+    @using (Html.BeginForm("Create", "Student", FormMethod.Post)) //actionName, controllerName, httpMethod
+    {
+        <div class="mb-3">
+            @Html.LabelFor(x => x.FirstName, new {@class="form-label"})
+            @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
+        </div>
+
+        <div class="mb-3">
+            @Html.LabelFor(x => x.LastName, new { @class = "form-label" })
+            @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
+        </div>
+
+        <div class="mb-3">
+            @Html.LabelFor(x => x.DateOfBirth, new { @class = "form-label" })
+            @Html.TextBoxFor(m => m.DateOfBirth, new { @class = "form-control", type = "date" })
+        </div>
+
+        <div class="mb-3">
+            @Html.LabelFor(x => x.ActiveCourseId, new { @class = "form-label" })
+            @Html.DropDownListFor(m => m.ActiveCourseId,
+            new SelectList(Model.Courses, "Id", "Name"),
+            new { @class = "form-select" })
+        </div>
+
+        <div class="mt-5">
+            <button type="submit" class="btn btn-outline-success">Add student</button>
+            @*Label, actionMethod and controller*@
+            @Html.ActionLink("Back to home", "Index", "Home", new { @class = "btn btn-outline-secondary" })
+        </div>
+    }
+</div>
+
+@*Form created using Tag helpers*@
+
+<div class="container mt-5">
+    <h2 class="mb-4 text-warning">Create Student (Using Tag Helpers)</h2>
+    <form asp-controller="Student" asp-action="Create" method="post">
+        <div class="mb-3">
+            <label asp-for="FirstName" class="form-label">First name</label>
+            <input asp-for="FirstName" class="form-control"/>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="LastName" class="form-label">Last name</label>
+            <input asp-for="LastName" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="DateOfBirth" class="form-label">Date of birth</label>
+            <input asp-for="DateOfBirth" class="form-control" type="date"/>
+        </div>
+
+
+        <div class="mb-3">
+            <label asp-for="ActiveCourseId" class="form-label">Course</label>
+            <select asp-for="ActiveCourseId"
+                    asp-items="@(new SelectList(Model.Courses, "Id", "Name"))"
+                    class="form-select">
+                @*<option value="">Select a course</option>*@
+            </select>
+        </div>
+
+        <div class="mt-5">
+            <button type="submit" class="btn btn-outline-success">Create student</button>
+            <a asp-controller="Home" asp-action="Index">Back to home</a>
+        </div>
+    </form>
+</div>
+
