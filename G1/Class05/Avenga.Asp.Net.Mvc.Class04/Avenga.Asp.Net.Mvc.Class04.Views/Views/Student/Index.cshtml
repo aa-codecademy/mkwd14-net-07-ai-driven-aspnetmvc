@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Avenga.Asp.Net.Mvc.Class04.Views.Models.DtoModels.StudentWithCourseDto>
+@{
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Age
+            </th>
+            <th>
+                Name Of Course
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @item.FullName
+            </td>
+            <td>
+                @item.Age
+            </td>
+            <td>
+                @item.NameOfCourse
+            </td>
+            <td>
+                    @Html.ActionLink("Details", "GetStudentById", new { id=item.Id }) |
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

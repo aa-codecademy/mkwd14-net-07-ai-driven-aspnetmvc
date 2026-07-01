@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34525.116
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avenga.Asp.Net.Mvc.Class04.Views", "Avenga.Asp.Net.Mvc.Class04.Views\Avenga.Asp.Net.Mvc.Class04.Views.csproj", "{F4253B2A-EF17-BAC4-D9DB-F8890BF40D1F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F4253B2A-EF17-BAC4-D9DB-F8890BF40D1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4253B2A-EF17-BAC4-D9DB-F8890BF40D1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4253B2A-EF17-BAC4-D9DB-F8890BF40D1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4253B2A-EF17-BAC4-D9DB-F8890BF40D1F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {166CBD7E-3907-47DE-AB7B-F648AAEE18AF}
+	EndGlobalSection
+EndGlobal

@@ -2,8 +2,7 @@
 
 # ASP.NET MVC
 
-Trainer - Trainer Name
-
+Trainer - Danilo Borozan
 ---
 
 # RETROSPECTIVE
@@ -632,4 +631,4 @@ Instead:
 
 You can find me at:
 
-trainer@mail.com
+daniloborozan07@gmail.com
