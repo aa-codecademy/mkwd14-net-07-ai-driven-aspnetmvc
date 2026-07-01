@@ -16,7 +16,9 @@
             <tr>
                 <td>@course.Name</td>
                 <td>
-                    @Html.RenderPartialAsync("_PartialStudentsView", course.Students);
+                    @{
+                        Html.RenderPartial("_PartialStudentsView", course.Students);
+                    }
                 </td>
             </tr>
         }
