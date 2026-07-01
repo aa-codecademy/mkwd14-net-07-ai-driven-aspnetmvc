@@ -15,6 +15,8 @@ namespace Avenga.ASP.NET.MVC.Class04.Controllers
 
         public IActionResult Index()
         {
+            ViewData["Message"] = "Welcome to Avenga Academy";
+
             return View();
         }
 
