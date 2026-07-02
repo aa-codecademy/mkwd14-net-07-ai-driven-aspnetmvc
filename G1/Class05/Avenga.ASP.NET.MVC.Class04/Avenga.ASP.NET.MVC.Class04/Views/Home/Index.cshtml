@@ -1,0 +1,71 @@
+﻿@model Avenga.ASP.NET.MVC.Class04.Models.Dto.CoursesWithStudentDto
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">@ViewData["Message"]</h1>
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+
+
+<h1>HTML HELPERS</h1>
+
+<hr />
+
+<h3>TextBox: Geneates an input element of type text.</h3>
+@Html.TextBox(nameof(Model.Name), null, new {@class = "form-control", placeholder = "Enter course name"})"
+
+<h3>TextArea: Generates a textarea element</h3>
+@Html.TextArea("Description", null, new {@class = "form-control", placeholder = "Ebter your description", row = 3})
+
+<h3>DropDown</h3>
+@Html.DropDownList(nameof(Model.Students), new SelectList(new [] {"Danilo", "Damjan", "Klementina"}), "Selecet Student", new {@class = "form-control"})
+
+<h3> CheckBox</h3>
+@Html.CheckBox("Subscribe", new { @class = "form-check-input" })
+
+<h3> Radio Button</h3>
+@Html.RadioButton("Role","Admin", new { @class = "form-check-input" })
+@Html.RadioButton("Role","User", new { @class = "form-check-input" })
+@* @Html.RadioButtonFor(m => m.Gender, "Male") Male
+@Html.RadioButtonFor(m => m.Gender, "Female") Female *@
+<h3>ActionLink</h3>
+@Html.ActionLink("Click here", "Index", "Courses", null, new { @class = "btn btn-primary" })")
+
+<h3>Password</h3>
+@Html.Password("Password", null, new { @class = "form-control", placeholder = "Enter your password" })
+
+
+
+<h1>TAG HELPERS</h1>
+
+<hr />
+
+<h3>TextBox (INPUT)</h3>
+<input asp-for="Name" class="form-control" placeholder="Enter text"/>
+
+<h3>TextArea</h3>
+
+<textarea asp-for="Descrption" class="form-control" placeholder="Enter text" rows="3"></textarea>
+<h3>DropDown</h3>
+<select asp-for="Students" asp-items='new SelectList(new[] { " Danilo", "Damjan", "Klementina" })' class="form-control" >
+    <option value="">Select Student</option>
+</select>
+
+
+<h3> CheckBox</h3>
+<input type="checkbox" asp-for="Subscribe" class="form-check-input" />
+
+<h3>RadioButton</h3>
+<input type="radio" asp-for="Role" value="Admin" class="form-check-input" /> Admin
+<input type="radio" asp-for="Role" value="User" class="form-check-input" /> User
+
+<h3>ActionLink</h3>
+<a asp-action="Index" asp-controller="Courses" class="btn btn-primary"> Click here</a>
+
+<h3>Password</h3>
+<input type="password"  class="form-control" placeholder="Enter your password"/>
+
+

@@ -1,0 +1,26 @@
+﻿@model IEnumerable<Avenga.ASP.NET.MVC.Class04.Models.Dto.CoursesWithStudentDto>
+<h1>
+    Get All Courses
+</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var course in Model)
+        {
+            <tr>
+                <td>@course.Name</td>
+                <td>
+                    @{
+                        Html.RenderPartial("_PartialStudentsView", course.Students);
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

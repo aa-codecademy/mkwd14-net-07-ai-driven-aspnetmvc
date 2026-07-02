@@ -1,0 +1,24 @@
+﻿@model Avenga.ASP.NET.MVC.Class04.Models.ViewModels.CreateStudentVM
+
+<h1>Create Student</h1>
+<hr/>
+<div class="row">
+    <div class="col-md-4">
+        <h2>Create Student</h2>
+        <form method="post" action="create">
+            <div>
+                <label for="FirstName">First Name:</label>
+                <input type="text" name="FirstName" id="FirstName" />
+            </div>
+            <div>
+                <label for="LastName">Last Name:</label>
+                <input type="text" name="LastName" id="LastName" />
+            </div>  
+            <div>
+                <label for="DateOfBirth">Date of Birth:</label>
+                <input type="date" name="DateOfBirth" id="DateOfBirth"  />
+            </div>
+            <button type="submit">Create</button>
+        </form>
+    </div>
+</div>
