@@ -31,8 +31,8 @@ namespace ToDoApp.DataAccess
         {
             Statuses = new List<Status>()
             {
-                new Status { Id = 1, Name = "Open"},
-                new Status { Id = 2, Name = "Closed"}
+                new Status { Id = 1, Name = "In Progress"},
+                new Status { Id = 2, Name = "Completed"}
             };
         }
 

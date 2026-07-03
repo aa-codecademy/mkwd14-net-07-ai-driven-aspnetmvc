@@ -1,7 +1,20 @@
+using System.Threading.RateLimiting;
+using ToDoApp.DataAccess.Imlementations;
+using ToDoApp.DataAccess.Interfaces;
+using ToDoApp.Domain;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+//DI for repositories
+builder.Services.AddScoped<IRepository<ToDo>, ToDoRepository>();
+builder.Services.AddScoped<IRepository<Category>, CategoryRepository>();
+builder.Services.AddScoped<IRepository<Status>, StatusRepository>();
+
+
+
 
 var app = builder.Build();
 
