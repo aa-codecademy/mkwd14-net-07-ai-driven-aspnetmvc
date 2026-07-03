@@ -7,7 +7,7 @@ namespace ToDoApp.DataAccess
         public static List<ToDo> Todos { get; set; }
         public static List<Category> Categories { get; set; }
         public static List<Status> Statuses { get; set; }
-        public StaticDb()
+        static StaticDb()
         {
             LoadCategories();
             LoadStatuses();
