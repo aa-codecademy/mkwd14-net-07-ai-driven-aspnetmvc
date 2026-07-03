@@ -4,9 +4,9 @@ namespace ToDoApp.DataAccess
 {
     public static class StaticDb
     {
-        public static List<ToDo> Todos { get;set; }
-        public static List<Category> Categories { get;set; }
-        public static List<Status> Statuses { get;set; }
+        public static List<ToDo> Todos { get; set; }
+        public static List<Category> Categories { get; set; }
+        public static List<Status> Statuses { get; set; }
         public StaticDb()
         {
             LoadCategories();
@@ -77,4 +77,5 @@ namespace ToDoApp.DataAccess
                   },
             };
         }
+    }
 }
