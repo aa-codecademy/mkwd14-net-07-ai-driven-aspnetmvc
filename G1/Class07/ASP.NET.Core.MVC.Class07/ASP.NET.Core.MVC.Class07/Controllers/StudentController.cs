@@ -26,7 +26,30 @@ namespace ASP.NET.Core.MVC.Class07.Controllers
             {
                 return NotFound();
             }
-            var studentVM = Mapper.MapToStudentVM(student);
+            var studentVM = Mapper.MapToStudentDetailsVM(student);
+            return View("StudentDetails", studentVM);
+        }
+        [HttpGet("id")]
+        public IActionResult GetStudentByIdWithQuery([FromQuery] int id)
+        {
+            var student = StaticDb.Students.FirstOrDefault(x => x.Id == id);
+            if (student == null)
+            {
+                return NotFound();
+            }
+            var studentVM = Mapper.MapToStudentDetailsVM(student);
+            return View("StudentDetails", studentVM);
+        }
+
+        [HttpGet("filterBy")]
+        public IActionResult GetStudentFilter([FromQuery] StudentFilterViewModel studentFilterViewModel)
+        {
+            var student = StaticDb.Students.FirstOrDefault(x => (DateTime.Now.Year - x.DateOfBirth.Year) == studentFilterViewModel.Age && x.GetFullName().ToLower() == studentFilterViewModel.FullName.ToLower());
+            if (student == null)
+            {
+                return NotFound();
+            }
+            var studentVM = Mapper.MapToStudentDetailsVM(student);
             return View("StudentDetails", studentVM);
         }
     }

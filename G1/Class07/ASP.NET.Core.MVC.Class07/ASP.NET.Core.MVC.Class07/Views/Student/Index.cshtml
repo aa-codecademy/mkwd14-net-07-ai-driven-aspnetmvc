@@ -23,8 +23,14 @@
             <td>@student.Email</td>
             <td>
 
-                @*   <a class="btn btn-outline-primary" asp-action="" asp-route="">Details</a>
-                <a class="btn btn-outline-secondary" asp-action="" asp-route="">Details (by query)</a> *@
+              <a class="btn btn-outline-primary" asp-action="GetStudentById" asp-route-id="@student.Id">Details (by route)</a>
+                    <a class="btn btn-outline-secondary" asp-action="GetStudentByIdWithQuery" asp-route-id="@student.Id">Details (by query)</a>
+
+                    <a class="btn btn-outline-info" 
+                        asp-action="GetStudentFilter"
+                        asp-route-age="@student.Age"
+                        asp-route-fullname="@student.FullName">
+                            Details by name and age</a>
             </td>
            </tr>
 

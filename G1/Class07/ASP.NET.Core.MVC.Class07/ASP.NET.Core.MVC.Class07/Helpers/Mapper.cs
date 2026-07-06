@@ -15,5 +15,16 @@ namespace ASP.NET.Core.MVC.Class07.Helpers
                 Email = student.Email
             };
         }
+        public static StudentDetailsViewModel MapToStudentDetailsVM(Student student)
+        {
+            return new StudentDetailsViewModel
+            {
+                Id = student.Id,
+                FullName = student.GetFullName(),
+                Age = DateTime.Now.Year - student.DateOfBirth.Year,
+                Email = student.Email,
+                Phone = student.PhoneNumber
+            };
+        }
     }
 }
