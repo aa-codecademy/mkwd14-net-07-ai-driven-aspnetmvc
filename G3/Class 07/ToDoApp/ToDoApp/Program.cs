@@ -1,7 +1,36 @@
+using ToDoApp.DataAccess.Implementation;
+using ToDoApp.DataAccess.Interfaces;
+using ToDoApp.Domain;
+using ToDoApp.Services.Implementation;
+using ToDoApp.Services.Interfaces;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+//Here we register the dependencies using Dependency Injection
+#region Register repositories
+//this tells the app that anywhere where an instance of IRepository<ToDo> is requested, the impl that should be called is ToDoRepository impl
+//if we later on create a new impl and decide to change it, we only need to come here and change instead of ToDoRepository to use the new impl
+
+//singleton lifetime ; a new instance is created the first time it is requested and that instance is used and shared among the whole app
+//builder.Services.AddSingleton<IRepository<ToDo>, ToDoRepository>();
+
+//Transient lifetime: a new instance is created every time it is requested
+//builder.Services.AddTransient<IRepository<ToDo>, ToDoRepository>();
+
+//scoped lifetime: a new instance is created once per client request (if in a HTTP req there are multiple requests for this resource, the same instance is used)
+builder.Services.AddScoped<IRepository<ToDo>, ToDoRepository>();
+builder.Services.AddScoped<IRepository<Category>, CategoryRepository>();
+builder.Services.AddScoped<IRepository<Status>, StatusRepository>();
+#endregion
+
+#region Register services
+builder.Services.AddScoped<IToDoService, ToDoService>();
+builder.Services.AddScoped<IFilterService, FilterService>();
+#endregion
+
 
 var app = builder.Build();
 

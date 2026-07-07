@@ -66,7 +66,7 @@ namespace ToDoApp.DataAccess
                    new ToDo() {
                     Id = 4,
                     Description = "Buy groceries",
-                    DueDate = DateTime.Now.AddDays(3),
+                    DueDate = DateTime.Now.AddDays(-3),
                     CategoryId = 4,
                     StatusId = 1,
                 },
