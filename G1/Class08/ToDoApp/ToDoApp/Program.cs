@@ -2,6 +2,8 @@ using System.Threading.RateLimiting;
 using ToDoApp.DataAccess.Imlementations;
 using ToDoApp.DataAccess.Interfaces;
 using ToDoApp.Domain;
+using ToDoApp.Services.Implementations;
+using ToDoApp.Services.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +14,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IToDoRepository, ToDoRepository>();
 builder.Services.AddScoped<IRepository<Category>, CategoryRepository>();
 builder.Services.AddScoped<IRepository<Status>, StatusRepository>();
+builder.Services.AddScoped<IToDoService, ToDoService>();
 
 var app = builder.Build();
 

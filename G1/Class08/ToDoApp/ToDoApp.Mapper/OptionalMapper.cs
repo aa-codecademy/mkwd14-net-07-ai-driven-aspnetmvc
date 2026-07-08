@@ -10,16 +10,16 @@ namespace ToDoApp.Mapper
 {
     public static class OptionalMapper
     {
-        public static ToDosVM MapToToDosVM(ToDo todo)
+        public static ToDosVM MapToToDosVM(ToDo todo, string categoryName, string statusName)
         {
             return new ToDosVM
             {
                 Id = todo.Id,
                 Description = todo.Description,
                 DueDate = todo.DueDate,
-                StatusName = todo.Status?.Name ?? string.Empty,
+                StatusName = statusName ?? string.Empty,
                 StatusId = todo.Status.Id,
-                CategoryName = todo.Category?.Name ?? string.Empty,
+                CategoryName = categoryName ?? string.Empty,
                 CategoryId = todo.Category.Id
             };
         }
