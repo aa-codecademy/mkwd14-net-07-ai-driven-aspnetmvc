@@ -1,0 +1,26 @@
+﻿@model StudentDetailsViewModel
+
+<h2>Student details</h2>
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-2">Full name</dt>
+        <dd class="col-sm-2">@Model.Fullname</dd>
+    </dl>
+    <dl class="row">
+        <dt class="col-sm-2">Age</dt>
+        <dd class="col-sm-2">@Model.Age</dd>
+    </dl>
+    <dl class="row">
+        <dt class="col-sm-2">Email</dt>
+        <dd class="col-sm-2">@Model.Email</dd>
+    </dl>
+    <dl class="row">
+        <dt class="col-sm-2">Phone number</dt>
+        <dd class="col-sm-2">@Model.Phone</dd>
+    </dl>
+</div>
+
+<div>
+    <a asp-controller="Student" asp-action="Index" class="btn btn-outline-info">Back</a>
+</div>

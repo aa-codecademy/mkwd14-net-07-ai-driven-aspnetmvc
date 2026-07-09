@@ -1,0 +1,29 @@
+﻿@model List<StudentViewModel>
+
+    <h1>Students:</h1>
+
+    <a class="btn btn-outline-success" asp-action="Create">Create</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model[0].Fullname)</th>
+                <th>@Html.DisplayNameFor(model => model[0].Age)</th>
+                <th>@Html.DisplayNameFor(model => model[0].Email)</th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach(var student in Model)
+        {
+            <tr>
+                <td>@student.Fullname</td>
+                <td>@student.Age</td>
+                <td>@student.Email</td>
+                <td>
+                    <a class="btn btn-outline-primary" asp-action="GetStudentById" asp-route-id="@student.Id">Details (by route param)</a>
+                    <a class="btn btn-outline-primary" asp-action="GetStudentByQueryFilter"
+                       asp-route-fullname="@student.Fullname" asp-route-age="@student.Age">Details (by query)</a>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
