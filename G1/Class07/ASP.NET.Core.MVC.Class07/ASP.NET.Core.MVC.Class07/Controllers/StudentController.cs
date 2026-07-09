@@ -18,8 +18,8 @@ namespace ASP.NET.Core.MVC.Class07.Controllers
             return View(students);
         }
 
-        [HttpGet("{id}")]
-        public IActionResult GetStudentById([FromRoute]int id)
+        [HttpGet("{id}/{age}")]
+        public IActionResult GetStudentById([FromRoute]int id, int age)
         {
             var student = StaticDb.Students.FirstOrDefault(x => x.Id == id);
             if (student == null)
@@ -51,6 +51,23 @@ namespace ASP.NET.Core.MVC.Class07.Controllers
             }
             var studentVM = Mapper.MapToStudentDetailsVM(student);
             return View("StudentDetails", studentVM);
+        }
+
+        [HttpGet("create")]
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost("create")]
+        public IActionResult Create([FromForm] CreateStudentVM createStudentVM)
+        {
+            if(ModelState.IsValid)
+            {
+                StaticDb.Students.Add(Mapper.MapToStudent(createStudentVM));
+                return RedirectToAction("Index");
+            }
+            return View(createStudentVM);
         }
     }
 }
