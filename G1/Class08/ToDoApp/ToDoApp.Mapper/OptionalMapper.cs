@@ -18,9 +18,7 @@ namespace ToDoApp.Mapper
                 Description = todo.Description,
                 DueDate = todo.DueDate,
                 StatusName = statusName ?? string.Empty,
-                StatusId = todo.Status.Id,
-                CategoryName = categoryName ?? string.Empty,
-                CategoryId = todo.Category.Id
+                CategoryName = categoryName ?? string.Empty
             };
         }
     }
