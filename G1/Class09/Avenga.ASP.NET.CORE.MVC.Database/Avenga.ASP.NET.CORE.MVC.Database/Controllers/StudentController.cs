@@ -33,7 +33,9 @@ namespace Avenga.ASP.NET.CORE.MVC.Database.Controllers
         [HttpPost("create")]
         public IActionResult Create([FromForm]Student student)
         {
-            return View(student);
+            _context.Students.Add(student);
+            _context.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }
