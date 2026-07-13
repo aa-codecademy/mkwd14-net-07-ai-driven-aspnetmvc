@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36202.13 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avenga.ASP.NET.CORE.MVC.Database", "Avenga.ASP.NET.CORE.MVC.Database\Avenga.ASP.NET.CORE.MVC.Database.csproj", "{7BC8C77B-D3B6-464D-839C-D2D59458C363}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7BC8C77B-D3B6-464D-839C-D2D59458C363}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BC8C77B-D3B6-464D-839C-D2D59458C363}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BC8C77B-D3B6-464D-839C-D2D59458C363}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BC8C77B-D3B6-464D-839C-D2D59458C363}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9FA2E3A6-0D91-4DAB-A069-53CD16F9BA1B}
+	EndGlobalSection
+EndGlobal
