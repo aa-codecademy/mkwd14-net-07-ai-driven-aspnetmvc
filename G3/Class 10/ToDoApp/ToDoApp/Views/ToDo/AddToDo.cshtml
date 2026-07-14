@@ -1,0 +1,23 @@
+﻿@model CreateToDoViewModel
+
+<form asp-controller="ToDo" asp-action="AddToDo" method="post">
+    <div class="md-3">
+        <label asp-for="Description" class="form-label"></label>
+        <input asp-for="Description" class="form-control">
+    </div>
+    <div class="md-3">
+        <label asp-for="CategoryId" class="form-label"></label>
+        <select asp-for="CategoryId" class="form-select" asp-items="@(new SelectList(ViewBag.Categories, "Id", "Name"))">
+            <option value="0">None</option>
+        </select>
+    </div>
+
+    <div class="md-3">
+        <label asp-for="DueDate" class="form-label"></label>
+        <input asp-for="DueDate" class="form-control" type="date">
+    </div>
+    <div class="md-3">
+        <button type="submit" class="btn btn-outline-success">Create</button>
+    </div>
+
+</form>

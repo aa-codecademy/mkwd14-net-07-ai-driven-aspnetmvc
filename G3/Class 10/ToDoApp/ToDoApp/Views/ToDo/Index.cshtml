@@ -1,0 +1,50 @@
+﻿@model List<ToDosViewModel>
+
+<div class="row">
+    <div class="col-md-12">
+        @Html.Partial("~/Views/ToDo/Partial/_FilterPartial.cshtml", (FilterDto)ViewBag.Filter)
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-bordered table-striped mt-2">
+            <thead>
+                <tr>
+                    <th>Description</th>
+                    <th>Due date</th>
+                    <th>Category</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (ToDosViewModel todo in Model)
+                {
+                    string dueDateClass = todo.DueDate < DateTime.Now ? "bg-danger" : "";
+                    <tr>
+                        <td>@todo.Description</td>
+                        <td class="@dueDateClass">@todo.DueDate</td>
+                        <td>@todo.CategoryName</td>
+                        <td>@todo.StatusName</td>
+                        <td>
+                            @if (todo.StatusName == "Done")
+                            {
+                                <button disabled type="submit" class="btn btn-primary">Mark complete</button>
+                            }
+                            else
+                            {
+                                <a asp-action="MarkComplete" class="btn btn-primary" asp-route-id="@todo.Id">Mark complete</a>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <div class="mt-2">
+            <a asp-action="AddTodo" class="btn btn-outline-success">Create ToDo</a>
+        </div>
+        <div class="mt-2">
+            <a asp-action="RemoveComplete" class="btn btn-outline-danger">Remove complete</a>
+        </div>
+    </div>
+</div>
