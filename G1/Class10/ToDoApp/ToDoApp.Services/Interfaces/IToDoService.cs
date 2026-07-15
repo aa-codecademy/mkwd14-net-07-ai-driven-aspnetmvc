@@ -10,5 +10,7 @@ namespace ToDoApp.Services.Interfaces
     public interface IToDoService
     {
         List<ToDosVM> GetAllTodos(int? categoryId, int? statusId);
+        void AddTodo(CreateToDoVM createToDoVM);
+        bool MarkComplete(int todoId);
     }
 }

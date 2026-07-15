@@ -47,5 +47,12 @@ namespace ToDoApp.Controllers
             
             return RedirectToAction("GetAllToDos");
         }
+
+        [HttpGet("markComplete")]
+        public IActionResult MarkComplete(int id)
+        {
+            _toDoService.MarkComplete(id);
+            return RedirectToAction("GetAllToDos");
+        }
     }
 }

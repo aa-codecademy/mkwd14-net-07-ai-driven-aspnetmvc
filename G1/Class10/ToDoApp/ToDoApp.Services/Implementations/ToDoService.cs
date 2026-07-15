@@ -22,6 +22,13 @@ namespace ToDoApp.Services.Implementations
             _categoryRepository = categoryRepository;
             _statusRepository = statusRepository;
         }
+
+        public void AddTodo(CreateToDoVM createToDoVM)
+        {
+            var newTodo = OptionalMapper.CreateTodoVMToToDo(createToDoVM);
+            _toDoRepository.Create(newTodo);
+        }
+
         public List<ToDosVM> GetAllTodos(int? categoryId, int? statusId)
         {
             List<ToDo> todos = _toDoRepository.GetAll();
@@ -46,6 +53,18 @@ namespace ToDoApp.Services.Implementations
                 todosVM.Add(todoVM);
             }
             return todosVM;
+        }
+
+        public bool MarkComplete(int todoId)
+        {
+            var todo = _toDoRepository.GetById(todoId);
+            if(todo == null)
+            {
+                return false;   
+            }
+            todo.StatusId = 2; // Assuming 2 is the ID for "Completed" status
+            _toDoRepository.Update(todo);
+            return true;
         }
     }
 }

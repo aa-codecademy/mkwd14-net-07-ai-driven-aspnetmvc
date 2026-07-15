@@ -39,5 +39,16 @@ namespace ToDoApp.Mapper
                 Name = status.Name
             };
         }
+
+        public static ToDo CreateTodoVMToToDo(CreateToDoVM createToDoVM)
+        {
+            return new ToDo
+            {
+                Description = createToDoVM.Description,
+                DueDate = createToDoVM.DueDate,
+                CategoryId = createToDoVM.CategoryId,
+                StatusId = 1//DEFAULT STATUS: OPEN
+            };
+        }
     }
 }

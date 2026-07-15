@@ -34,9 +34,6 @@ namespace ToDoApp.DataAccess
                 .Property(x => x.Description)
                 .HasMaxLength(200)
                 .IsRequired();
-            modelBuilder.Entity<ToDo>()
-                .Property(x => x.DueDate)
-                .IsRequired();
 
             // one-to-many relationship between Category and ToDo
             modelBuilder.Entity<ToDo>()
