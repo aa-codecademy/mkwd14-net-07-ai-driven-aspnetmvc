@@ -23,8 +23,6 @@ namespace ToDoApp.Controllers
         {
             ViewBag.Filter = new FilterDto();
 
-            ViewBag.Filter.Categories = _filterService.GetCategories();
-            ViewBag.Filter.Statuses = _filterService.GetStatuses();
 
             if (TempData["HasFilter"] != null)
             {
@@ -32,6 +30,8 @@ namespace ToDoApp.Controllers
                 ViewBag.Filter.StatusId = statusId;
             }
 
+            ViewBag.Filter.Categories = _filterService.GetCategories();
+            ViewBag.Filter.Statuses = _filterService.GetStatuses();
             var todos = _toDoService.GetAllTodos(categoryId, statusId);
             return View(todos);
         }
