@@ -27,7 +27,7 @@
                         <td>@todo.CategoryName</td>
                         <td>@todo.StatusName</td>
                         <td>
-                            @if (todo.StatusName == "Completed")
+                            @if (todo.StatusName == "Closed")
                             {
                                 <button disabled class="btn btn-success btn-sm" type="submit">Mark as Completed</button>
                             }
@@ -43,7 +43,7 @@
             </tbody>
         </table>
         <div>
-            <a asp-action="AddTodo" class="btn btn-outline-primary">Create Todo</a>
+            <a asp-action="Create" class="btn btn-outline-primary">Create Todo</a>
         </div>
         <div>
             <a asp-action="RemoveComplete" class="btn btn-outline-primary">Remove Complete</a>

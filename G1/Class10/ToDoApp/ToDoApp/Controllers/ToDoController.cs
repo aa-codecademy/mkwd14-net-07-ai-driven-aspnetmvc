@@ -54,5 +54,19 @@ namespace ToDoApp.Controllers
             _toDoService.MarkComplete(id);
             return RedirectToAction("GetAllToDos");
         }
+
+        [HttpGet("create")]
+        public IActionResult Create()
+        {
+            ViewBag.Categories = _filterService.GetCategories();
+            return View("Create");
+        }
+
+        [HttpPost("create")]
+        public IActionResult Create(CreateToDoVM createToDoVM)
+        {
+            _toDoService.AddTodo(createToDoVM);
+            return RedirectToAction("GetAllToDos");
+        }
     }
 }
