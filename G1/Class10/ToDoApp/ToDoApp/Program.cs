@@ -14,7 +14,9 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IToDoRepository, ToDoRepository>();
 builder.Services.AddScoped<IRepository<Category>, CategoryRepository>();
 builder.Services.AddScoped<IRepository<Status>, StatusRepository>();
+//DI for services
 builder.Services.AddScoped<IToDoService, ToDoService>();
+builder.Services.AddScoped<IFilterService, FilterService>();
 
 var app = builder.Build();
 

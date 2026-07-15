@@ -1,0 +1,26 @@
+﻿@model FilterDto
+
+<form asp-controller="ToDo" asp-action="Filter" method="post">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="mb-3">
+                <label name="Categories" class="form-label"> Category</label>
+                <select name="categoryId" class="form-select" 
+                asp-items="@(new SelectList(Model.Categories, "Id", "Name"))">
+                <option value="0">Select Category</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label name="Statuses" class="form-label">Status</label>
+                <select name="statusId" class="form-select"
+                        asp-items="@(new SelectList(Model.Statuses, "Id", "Name"))">
+                    <option value="0">Select Status</option>
+                </select>
+            </div>
+        </div>
+        <div class="mb-3">
+            <button type="submit" class="btn btn-outline-primary">Filter</button>
+            <a asp-action="GetAllToDos" class="btn btn-outline-secondary">Clear</a>
+        </div>
+    </div>
+</form>
